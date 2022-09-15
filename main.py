@@ -53,10 +53,13 @@ def numeralToInt(numeral):
 
 def intToNumeral(integer):
     integer = str(integer)
+    tokens = []
     for i in range(len(integer)):
         place = len(integer) - i - 1
         token = places[int(integer[i])]
-        token.replace("a", tens[place])
-        token.replace("b", fives[place])
+        token = token.replace("a", tens[place])
+        token = token.replace("b", fives[place])
         if place + 1 < len(tens):
-            token.replace("c", tens[place+1])
+            token = token.replace("c", tens[place+1])
+        tokens.append(token)
+    return "".join(tokens)
