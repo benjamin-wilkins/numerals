@@ -1,3 +1,10 @@
+from browser import document, alert
+
+numeralInput = document["numeral-input"]
+numeralSubmit = document["numeral-submit"]
+numberInput = document["number-input"]
+numberSubmit = document["number-submit"]
+
 numerals = {
     "I":1,
     "V":5,
@@ -63,3 +70,6 @@ def intToNumeral(integer):
             token = token.replace("c", tens[place+1])
         tokens.append(token)
     return "".join(tokens)
+
+numeralSubmit.onclick = lambda: alert.message(numeralInput.value)
+numberSubmit.onclick = lambda: alert.message(numberInput.value)
